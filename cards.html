@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>cards</title>
+    <script src="https://unpkg.com/jquery"></script>
+</head>
+
+<body>
+
+    <form id="one-number-fact-form">
+        <div>
+            Choose your Number: <input id="number-one-fact" aria-label="number-one-fact">
+            <b class="error" id="name-err"></b>
+        </div>
+        <button>Get me a fact!</button>
+    </form>
+    <br>
+
+    <form id="multiple-numbers-fact-form">
+        <div>
+            Add a list of comma separated numbers: <input id="many-numbers-many-facts"
+                aria-label="many-numbers-many-facts">
+            <b class="error" id="name-err"></b>
+        </div>
+        <button>Get me facts about these numbers!</button>
+    </form>
+    <br>
+
+
+    <form id="one-number-multiple-facts-form">
+        <div>
+            Choose your number: <input id="one-number-many-facts" aria-label="one-number-many-facts">
+            <b class="error" id="name-err"></b>
+        </div>
+        <button>Get me facts about this number!</button>
+    </form>
+
+    <div id="lucky-results">
+        <h1>Heeeere are your results!</h1>
+        <p id="results"></p>
+    </div>
+
+    <script src="https://unpkg.com/axios/dist/axios.js"></script>
+    <script src="cards.js"></script>
+
+</body>
+
+</html>

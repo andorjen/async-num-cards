@@ -1,3 +1,4 @@
+"use strict"
 ////////////////////////////////////////////////////////////////////////////////
 ////AXIOS FUNCTIONS
 
@@ -37,8 +38,8 @@ async function getFourFacts(num) {
 async function getAndShowOneFactOneNumber(evt) {
     evt.preventDefault()
     $("#results").empty()
-    
-    let requestedNumber = $("#number-one-fact").val() 
+
+    let requestedNumber = $("#number-one-fact").val()
     let fact = await getNumberFact(requestedNumber);
     let $html = $(`<p>${fact}</p>`)
 
@@ -51,16 +52,16 @@ async function getAndShowOneFactOneNumber(evt) {
 async function getAndShowManyFactsManyNumbers(evt) {
     evt.preventDefault()
     $("#results").empty()
-    
+
     let requestedNumbers = $("#many-numbers-many-facts")
-                            .val()
-                            .split(',')
+        .val()
+        .split(',')
 
     let factList = await getMultipleNumberFacts(...requestedNumbers);
 
     for (let num in factList) {
         let $html = $(`<p>${factList[num]}</p>`)
-        $("#results").append($html)      
+        $("#results").append($html)
     }
 }
 
@@ -70,23 +71,23 @@ async function getAndShowManyFactsManyNumbers(evt) {
 async function getAndShowOneNumberManyFacts(evt) {
     evt.preventDefault()
     $("#results").empty()
-    
-    let requestedNumber = $("#one-number-many-facts").val() 
+
+    let requestedNumber = $("#one-number-many-facts").val()
     let factList = await getFourFacts(requestedNumber);
-    
+
     for (let num in factList) {
         let $html = $(`<p>${factList[num]}</p>`)
-        $("#results").append($html)      
+        $("#results").append($html)
     }
 }
 
 //Further study: Helper Function to validate input
 //Try:
-    // int(val)
+// int(val)
 //Except:
-    // Print error
+// Print error
 
 /** Event listeners. */
-$("#one-number-fact-form").on("submit",getAndShowOneFactOneNumber)
-$("#multiple-numbers-fact-form").on("submit",getAndShowManyFactsManyNumbers)
-$("#one-number-multiple-facts-form").on("submit",getAndShowOneNumberManyFacts)
+$("#one-number-fact-form").on("submit", getAndShowOneFactOneNumber)
+$("#multiple-numbers-fact-form").on("submit", getAndShowManyFactsManyNumbers)
+$("#one-number-multiple-facts-form").on("submit", getAndShowOneNumberManyFacts)
